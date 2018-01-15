@@ -11,4 +11,8 @@ var firstAndPike = {
   minHourlyCustomers: 23,
   maxHourlyCustomers: 65,
   avgCookiesPerSale: 6.3,
+  randomCustomers: function() {
+    var hourlyCustomers = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1) + this.minHourlyCustomers);
+    return hourlyCustomers;
+  }
 }
