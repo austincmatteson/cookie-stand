@@ -38,9 +38,10 @@ var firstAndPike = {
   },
   render: function() {
     var ulEl = document.getElementById('1stNPike');
-    for (var i = 0; i < this.cookieSales().length; i++) {
+    var todaySales = this.cookieSales();
+    for (var i = 0; i < todaySales.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = hoursOfOperation[i] + this.cookieSales()[i];
+      liEl.textContent = hoursOfOperation[i] + todaySales[i];
       ulEl.appendChild(liEl);
     }
   }
