@@ -7,22 +7,7 @@ h2{
   margin: 15px;
 }
 
-h3{
-  font-size: 25px;
-  text-decoration: underline;
-}
-
-.storeLocation {
-  min-width: 100px;
-  width: auto;
-  min-height:45px;
-  background-color:#333;
-  color:#FFF;
-  display:inline-block;
-  padding:10px;
-}
-
-/* table {
+table {
 	border: 10px solid #4ABDAC;
 	empty-cells: hide;
 }
@@ -37,4 +22,4 @@ td {
 th {
 	background-color: #F7B733;
 	color: #76323F;
-} */
+}
