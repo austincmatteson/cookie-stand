@@ -1,6 +1,6 @@
 'use strict';
 
-var hoursOfOperation = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+var hoursOfOperation = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total: '];
 
 // Location	      Min / Cust	Max / Cust	Avg Cookie Sale
 // 1st and Pike	  23	  65	        6.3
@@ -23,9 +23,16 @@ var firstAndPike = {
   },
   cookieSales: function() {
     var sales = [];
+    var total = 0;
     for(var i = 0; i < hoursOfOperation.length; i++) {
-      sales[i] = this.hourlyCookiesPurchased();
-      console.log(hoursOfOperation[i] + sales[i]);
+      if(i === (hoursOfOperation.length - 1)) {
+        sales[i] = total + ' cookies';
+        console.log(hoursOfOperation[i] + sales[i]);
+      } else {
+        sales[i] = this.hourlyCookiesPurchased();
+        console.log(hoursOfOperation[i] + sales[i]);
+        total += parseInt(sales[i]);
+      }
     }
     return sales;
   }
