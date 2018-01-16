@@ -161,7 +161,46 @@ var capitolHill = {
   }
 };
 
+var alki = {
+  minHourlyCustomers: 2,
+  maxHourlyCustomers: 16,
+  avgCookiesPerSale: 4.6,
+  randomHourlyCustomers: function() {
+    var customers = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1) + this.minHourlyCustomers);
+    return customers;
+  },
+  hourlyCookiesPurchased: function() {
+    var cookies = Math.round(this.avgCookiesPerSale * this.randomHourlyCustomers());
+    return cookies + ' cookies';
+  },
+  cookieSales: function() {
+    var sales = [];
+    var total = 0;
+    for(var i = 0; i < hoursOfOperation.length; i++) {
+      if(i === (hoursOfOperation.length - 1)) {
+        sales[i] = total + ' cookies';
+        console.log(hoursOfOperation[i] + sales[i]);
+      } else {
+        sales[i] = this.hourlyCookiesPurchased();
+        console.log(hoursOfOperation[i] + sales[i]);
+        total += parseInt(sales[i]);
+      }
+    }
+    return sales;
+  },
+  render: function() {
+    var ulEl = document.getElementById('alki');
+    var todaySales = this.cookieSales();
+    for (var i = 0; i < todaySales.length; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = hoursOfOperation[i] + todaySales[i];
+      ulEl.appendChild(liEl);
+    }
+  }
+};
+
 firstAndPike.render();
 seaTac.render();
 seattleCenter.render();
 capitolHill.render();
+alki.render();
