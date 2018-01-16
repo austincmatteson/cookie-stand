@@ -35,5 +35,13 @@ var firstAndPike = {
       }
     }
     return sales;
+  },
+  render: function() {
+    var ulEl = document.getElementById('1stNPike');
+    for (var i = 0; i < this.cookieSales().length; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = hoursOfOperation[i] + this.cookieSales()[i];
+      ulEl.appendChild(liEl);
+    }
   }
 }
