@@ -16,10 +16,13 @@ td {
 	padding: 10px;
 	border-radius: 15px;
   border: 1px solid black;
-  background: white;
+  background: rgb(238, 10, 10);
 }
 
 th {
-	background-color: #F7B733;
+  padding: 10px;
+	border-radius: 15px;
+  border: 1px solid black;
+  background-color: #F7B733;
 	color: #76323F;
 }
