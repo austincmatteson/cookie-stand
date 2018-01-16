@@ -44,4 +44,6 @@ var firstAndPike = {
       ulEl.appendChild(liEl);
     }
   }
-}
+};
+
+firstAndPike.render();
