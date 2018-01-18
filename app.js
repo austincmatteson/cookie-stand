@@ -2,6 +2,8 @@
 
 var hoursOfOperation = ['Store Location', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Daily Location Total'];
 
+var allStores = [];
+
 // Location	      Min / Cust	Max / Cust	Avg Cookie Sale
 // 1st and Pike	  23	  65	        6.3
 // SeaTac Airport	3	    24	        1.2
@@ -16,6 +18,7 @@ function Store(minHourlyCustomers, maxHourlyCustomers, avgCookiesPerSale, storef
   this.maxHourlyCustomers = maxHourlyCustomers;
   this.avgCookiesPerSale = avgCookiesPerSale;
   this.storefront = storefront;
+  allStores.push(this);
 }
 
 Store.prototype.randomHourlyCustomers = function() {
@@ -70,6 +73,12 @@ function makeHeaderRow() {
   storeTable.appendChild(trEl);
 }
 
+function renderAllStores() {
+  for(var i in allStores) {
+    allStores[i].render();
+  }
+}
+
 var firstAndPike = new Store(23, 65, 6.3, '1st & Pike');
 var seaTac = new Store(3, 34, 1.2, 'SeaTac Airport');
 var seattleCenter = new Store(11, 38, 3.7, 'Seattle Center');
@@ -77,8 +86,4 @@ var capitolHill = new Store(20, 38, 2.3, 'Capitol Hill');
 var alki = new Store(2, 16, 4.6, 'Alki');
 
 makeHeaderRow();
-firstAndPike.render();
-seaTac.render();
-seattleCenter.render();
-capitolHill.render();
-alki.render();
+renderAllStores();
