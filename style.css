@@ -26,3 +26,15 @@ th {
   background-color: #F7B733;
 	color: #76323F;
 }
+
+form {
+  width: 75%;
+}
+
+input {
+  margin: 15px;
+}
+
+legend, label {
+  color: blue;
+}

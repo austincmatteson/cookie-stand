@@ -4,6 +4,8 @@ var hoursOfOperation = ['Store Location', '6:00am', '7:00am', '8:00am', '9:00am'
 
 var allStores = [];
 
+var storeForm = document.getElementById('store-form');
+
 // Location	      Min / Cust	Max / Cust	Avg Cookie Sale
 // 1st and Pike	  23	  65	        6.3
 // SeaTac Airport	3	    24	        1.2
@@ -79,11 +81,28 @@ function renderAllStores() {
   }
 }
 
+function addNewStore(event) {
+  event.preventDefault();
+  console.log(event.target.storeName.value);
+  var newStore = event.target.storeName.value;
+  var minCustomers = event.target.minCust.value;
+  var maxCustomers = event.target.maxCust.value;
+  var avgCookies = event.target.avgCook.value;
+
+  new Store(minCustomers, maxCustomers, avgCookies, newStore);
+
+  storeTable.innerHTML = '';
+  makeHeaderRow();
+  renderAllStores();
+}
+
 var firstAndPike = new Store(23, 65, 6.3, '1st & Pike');
 var seaTac = new Store(3, 34, 1.2, 'SeaTac Airport');
 var seattleCenter = new Store(11, 38, 3.7, 'Seattle Center');
 var capitolHill = new Store(20, 38, 2.3, 'Capitol Hill');
 var alki = new Store(2, 16, 4.6, 'Alki');
+
+storeForm.addEventListener('submit', addNewStore);
 
 makeHeaderRow();
 renderAllStores();
